@@ -21,13 +21,7 @@ public class LinkedList {
         if (head == null) {
             tail = head = newNode;
         } else {
-            Node temp = head;
-
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-
-            temp.next = newNode;
+            tail.next = newNode;
             tail = newNode;
         }
     }
@@ -48,7 +42,7 @@ public class LinkedList {
     // insert node at a position
     public void insertAtIndex(int data, int idx) {
         Node newNode = new Node(data);
-        int ctr = 0;
+        int ctr = 1;
 
         if (head == null) {
             insertAtStart(data);
@@ -61,7 +55,7 @@ public class LinkedList {
             }
 
             // iterate till prev idx
-            while (ctr < idx - 1) {
+            while (ctr < idx) {
                 temp = temp.next;
 
                 if (temp.next == null) {
@@ -78,7 +72,7 @@ public class LinkedList {
 
     public boolean isEmpty() {
         if (head == null) {
-            System.out.println("LinkedList empty!! No node to delete");
+            System.out.println("LinkedList empty!!");
             return true;
         }
         return false;
@@ -132,10 +126,10 @@ public class LinkedList {
             return;
         }
 
-        int ctr = 0;
+        int ctr = 1;
         Node temp = head;
 
-        while (ctr < idx - 1) {
+        while (ctr < idx) {
             if (temp == null) {
                 System.out.println("Entered index out of bound");
                 return;
@@ -181,23 +175,23 @@ public class LinkedList {
         myLL.insertAtEnd(10);
         myLL.insertAtEnd(15);
         myLL.displayLL();
-        myLL.insertAtIndex(29, 6);
-        myLL.displayLL();
-        myLL.deleteStart();
-        myLL.displayLL();
-        myLL.deleteStart();
-        myLL.displayLL();
-        myLL.deleteEnd();
-        myLL.displayLL();
-        myLL.deleteEnd();
-        myLL.deleteEnd();
-        myLL.deleteEnd();
-        myLL.displayLL();
-        myLL.insertAtEnd(15);
-        myLL.displayLL();
-        myLL.deleteAtIndex(3);
-        myLL.displayLL();
-        myLL.deleteAtIndex(0);
-        myLL.displayLL();
+        // myLL.insertAtIndex(29, 6);
+        // myLL.displayLL();
+        // myLL.deleteStart();
+        // myLL.displayLL();
+        // myLL.deleteStart();
+        // myLL.displayLL();
+        // myLL.deleteEnd();
+        // myLL.displayLL();
+        // myLL.deleteEnd();
+        // myLL.deleteEnd();
+        // myLL.deleteEnd();
+        // myLL.displayLL();
+        // myLL.insertAtEnd(15);
+        // myLL.displayLL();
+        // myLL.deleteAtIndex(3);
+        // myLL.displayLL();
+        // myLL.deleteAtIndex(0);
+        // myLL.displayLL();
     }
 }
