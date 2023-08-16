@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class ImplementBinaryTree {
+public class ImplementTraversalBT {
     static class Node {
         int data;
         Node left;
@@ -72,10 +72,52 @@ public class ImplementBinaryTree {
         }
     }
 
+    // LNR
+    static void inorder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        inorder(root.left);
+        System.out.print(root.data + " ");
+        inorder(root.right);
+    }
+
+    // NLR
+    static void preorder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    // LRN
+    static void postorder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data + " ");
+    }
+
     public static void main(String[] args) {
         Node root = null;
         root = buildTree(root);
 
+        System.out.println("LEVEL ORDER--------");
         levelOrder(root);
+        System.out.println("INORDER--------");
+        inorder(root);
+        System.out.println();
+        System.out.println("PREODER--------");
+        preorder(root);
+        System.out.println();
+        System.out.println("POSTORDER--------");
+        postorder(root);
     }
 }
